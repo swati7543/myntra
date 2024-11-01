@@ -13,7 +13,7 @@ const HomePage = () => {
             <Box sx={{ width: "100%" }}>
                 <ImgSection />
                 <CouponCorner />
-                {/* <ImageSlider1 /> */}
+                <ImageSlider1 />
                 <OmgSlider />
                 <CategoriesCard />
                 <Box sx={{ width: '100%', mt: 2 }}>
