@@ -50,7 +50,7 @@ function DetailsPage() {
     const navigate = useNavigate()
     return (
         <CardDetails>
-            <Box sx={{ padding: 2, textAlign: 'center', mt: '6rem' }}>
+            <Box sx={{ padding: 2, textAlign: 'center', mt: { md: '6rem', sm: 0, xs: 0 } }}>
 
                 <Grid container spacing={2}>
                     {images.map((image) => (

@@ -53,9 +53,9 @@ export default function CardDetails({ children }) {
         <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'left' }}>
             <Grid container spacing={2}>
                 {/* Sidebar */}
-                <Grid item xs={12} md={2.5}>
+                <Grid item xs={12} md={2.5} sx={{ display: { md: 'block', sm: 'none', xs: 'none' } }}>
                     {/* Breadcrumbs and Title */}
-                    <Box role="presentation" onClick={handleClick} sx={{ paddingLeft: 1, mt: 1,pl:3 }}>
+                    <Box role="presentation" onClick={handleClick} sx={{ paddingLeft: 1, mt: 1, pl: 3 }}>
                         <Breadcrumbs aria-label="breadcrumb" sx={{ fontSize: '0.8rem' }}>
                             <Link underline="hover" color="inherit" href="/">Home</Link>
                             <Link underline="hover" color="inherit" href="/clothing">Clothing</Link>
@@ -132,10 +132,10 @@ export default function CardDetails({ children }) {
 
                 {/* Content Area */}
                 <Grid item xs={12} md={9}>
-                   
-                   <Box>
-                   {children}
-                    </Box> 
+
+                    <Box>
+                        {children}
+                    </Box>
                 </Grid>
             </Grid>
         </Box>

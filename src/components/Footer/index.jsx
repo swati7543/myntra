@@ -9,53 +9,53 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 export const Footer = () => {
 
     return (
-        <Box sx={{ backgroundColor: '#f8f8f8', padding: '20px', marginTop: '20px', borderTop: '1px solid #e0e0e0' }}>
+        <Box sx={{ backgroundColor: '#f8f8f8',p:1, marginTop: '20px', borderTop: '1px solid #e0e0e0' }}>
             <Container >
-                <Grid2 container spacing={2}>
+                <Grid2 container >
                     {/* links start */}
                     <Grid2 size={{ xs: 6, md: 2 }} sx={{ textAlign: 'left' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 15, marginBottom: '10px' }}>Online Shopping</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 13, marginBottom: '10px' }}>Online Shopping</Typography>
                         <Box sx={{ textAlign: 'start', marginBottom: '20px' }}>
-                            <Typography sx={{ fontSize: 15 }}> Men</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Women</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Kids</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Home & Living</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Beauty</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Gift Cards</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Myntra Insider</Typography>
+                            <Typography sx={{ fontSize: 13 }}> Men</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Women</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Kids</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Home & Living</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Beauty</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Gift Cards</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Myntra Insider</Typography>
                         </Box>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>Useful links</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 13, marginBottom: '10px' }}>Useful links</Typography>
                         <Box sx={{ textAlign: 'start' }}>
-                            <Typography sx={{ fontSize: 15 }} >Men</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Women</Typography>
-                            <Typography sx={{ fontSize: 15 }}> Kids</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Home & Living</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Beauty</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Gift Cards</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Myntra Insider</Typography>
+                            <Typography sx={{ fontSize: 13 }} >Men</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Women</Typography>
+                            <Typography sx={{ fontSize: 13 }}> Kids</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Home & Living</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Beauty</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Gift Cards</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Myntra Insider</Typography>
                         </Box>
                     </Grid2>
 
                     <Grid2 size={{ xs: 6, md: 2 }} sx={{ textAlign: 'left' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>CUSTOMER POLICIES</Typography>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 12, marginBottom: '10px' }}>CUSTOMER POLICIES</Typography>
                         <Box sx={{ textAlign: 'start', marginBottom: '20px' }}>
-                            <Typography sx={{ fontSize: 15 }}>Contact us</Typography>
-                            <Typography sx={{ fontSize: 15 }}>FAQ</Typography>
-                            <Typography sx={{ fontSize: 15 }}>T&C</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Terms of Use</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Track Orders</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Shipping</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Cancellation</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Return</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Privacy Policy</Typography>
-                            <Typography sx={{ fontSize: 15 }}>Grievance Officer</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Contact us</Typography>
+                            <Typography sx={{ fontSize: 13 }}>FAQ</Typography>
+                            <Typography sx={{ fontSize: 13 }}>T&C</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Terms of Use</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Track Orders</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Shipping</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Cancellation</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Return</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Privacy Policy</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Grievance Officer</Typography>
                         </Box>
                     </Grid2>
 
-                    <Grid2 size={{ xs: 6, md: 4 }} sx={{ textAlign: 'left' }}>
+                    <Grid2 size={{ xs: 12, md: 4 }} sx={{ textAlign: 'left' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>
                             EXPERIENCE MYNTRA APP ON MOBILE</Typography>
-                        <Box sx={{ display: 'flex', justifyContent: 'left', mt: 2,gap:2 }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'left', mt: 2, gap: 2 }}>
                             <Link href="https://play.google.com/store/apps/details?id=com.myntra.android">
                                 <img src="https://constant.myntassets.com/web/assets/img/80cc455a-92d2-4b5c-a038-7da0d92af33f1539674178924-google_play.png" alt="Google Play" style={{ width: '140px', height: '42px' }} />
                             </Link>
@@ -73,7 +73,7 @@ export const Footer = () => {
                         </Box>
                         {/* You can add icons or links to download the app here */}
                     </Grid2>
-                    <Grid2 size={{ xs: 6, md: 3 }} sx={{ textAlign: 'left' }}>
+                    <Grid2 size={{ xs: 12, md: 3 }} sx={{ textAlign: 'left' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>
                             EXPERIENCE MYNTRA APP ON MOBILE</Typography>
                         <Grid2 item>
@@ -107,7 +107,7 @@ export const Footer = () => {
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>
                             <Divider textAlign="left"> POPULAR SEARCHES</Divider>
                         </Typography>
-                        <Box>
+                        <Box sx={{fontSize:13}}>
                             Makeup  Dresses For Girls  T-Shirts  Sandals  Headphones  Babydolls  Blazers For Men  Handbags  Ladies Watches  Bags  Sport Shoes  Reebok Shoes  Puma Shoes  Boxers  Wallets  Tops  Earrings  Fastrack Watches  Kurtis  Nike  Smart Watches  Titan Watches  Designer Blouse  Gowns  Rings  Cricket Shoes  Forever 21  Eye Makeup  Photo Frames  Punjabi Suits  Bikini  Myntra Fashion Show  Lipstick  Saree  Watches  Dresses  Lehenga  Nike Shoes  Goggles  Bras  Suit  Chinos  Shoes  Adidas Shoes  Woodland Shoes  Jewellery  Designers Sarees
                         </Box>
                         {/* You can add icons or links to download the app here */}
@@ -115,10 +115,10 @@ export const Footer = () => {
                     <Grid2 size={{ md: 4, xs: 12 }} sx={{ textAlign: 'left' }}>
                         In case of any concern, Contact Us
                     </Grid2>
-                    <Grid2 size={{ md: 4, xs: 12 }} >
+                    <Grid2 size={{ md: 4, xs: 12 }} sx={{ textAlign: 'left' }}>
                         In case of any concern, Contact Us
                     </Grid2>
-                    <Grid2 size={{ md: 4, xs: 12 }}>
+                    <Grid2 size={{ md: 4, xs: 12 }} sx={{ textAlign: 'left' }}>
                         In case of any concern, Contact Us
                     </Grid2>
                     {/* POPULAR SEARCHES end */}
@@ -139,7 +139,7 @@ export const Footer = () => {
                         </Box>
                     </Grid2>
 
-                    <Grid2 size={{ md: 4, xs: 12 }} sx={{ mt: 8, }}>
+                    <Grid2 size={{ md: 4, xs: 12 }} sx={{ mt: { md: 8, xs: 0, sm: 0 }, textAlign: 'left' }}>
                         <Box>
                             <Typography>CIN: U72300KA2007PTC041799</Typography>
                             <Typography>Telephone: +91-80-61561999</Typography>
