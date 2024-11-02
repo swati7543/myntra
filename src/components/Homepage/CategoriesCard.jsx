@@ -37,7 +37,7 @@ function CategoriesCard() {
 
             <Grid container spacing={2}>
                 {images.map((image) => (
-                    <Grid item xs={12} sm={6} md={2} key={image.id}>
+                    <Grid item xs={4} sm={4} md={2} key={image.id}>
                         <Box
                             component="img"
                             src={image.src}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Breadcrumbs, Checkbox, Grid, Link, Radio, Slider, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Breadcrumbs, Checkbox, Grid, Link, Radio, Slider, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function handleClick(event) {
     event.preventDefault();
@@ -51,9 +52,9 @@ export default function CardDetails({ children }) {
 
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'left' }}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} >
                 {/* Sidebar */}
-                <Grid item xs={12} md={2.5} sx={{ display: { md: 'block', sm: 'none', xs: 'none' } }}>
+                <Grid item xs={12} md={2.5} sx={{ display: { md: 'block', sm: 'none', xs: 'none' }, p: 5 }}>
                     {/* Breadcrumbs and Title */}
                     <Box role="presentation" onClick={handleClick} sx={{ paddingLeft: 1, mt: 1, pl: 3 }}>
                         <Breadcrumbs aria-label="breadcrumb" sx={{ fontSize: '0.8rem' }}>
@@ -132,11 +133,14 @@ export default function CardDetails({ children }) {
 
                 {/* Content Area */}
                 <Grid item xs={12} md={9}>
-
+                    <Box sx={{ mt: '4rem' }}>
+                        <Typography>Bundles</Typography>
+                    </Box>
                     <Box>
                         {children}
                     </Box>
                 </Grid>
+
             </Grid>
         </Box>
     );

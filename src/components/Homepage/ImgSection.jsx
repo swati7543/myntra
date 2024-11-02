@@ -21,33 +21,33 @@ const ImgSection = () => {
         <Box sx={{ textAlign: 'center', padding: 2 }}>
             <Grid container justifyContent="center">
                 {/* First Row of Images */}
-                <Grid item xs={3} sm={6} md={3}>
+                <Grid item xs={3} sm={3} md={3}>
                     <img src={img1} alt='firstimg' style={{ width: '100%' }} />
                 </Grid>
-                <Grid item xs={3} sm={6} md={3}>
+                <Grid item xs={3} sm={3} md={3}>
                     <img src={img2} alt='firstimg2' style={{ width: '100%' }} />
                 </Grid>
-                <Grid item xs={3} sm={6} md={3}>
+                <Grid item xs={3} sm={3} md={3}>
                     <img src={img3} alt='firstimg3' style={{ width: '100%' }} />
                 </Grid>
-                <Grid item xs={3} sm={6} md={3}>
+                <Grid item xs={3} sm={3} md={3}>
                     <img src={img4} alt='firstimg4' style={{ width: '100%' }} />
                 </Grid>
 
                 {/* Second Row of Images */}
                 <Grid item xs={6} sm={6}>
-                    <img src={homeimg1} alt='img' style={{ width: '100%', maxWidth: '630px' }} />
+                    <img src={homeimg1} alt='img' style={{ width: '100%',  }} />
                 </Grid>
                 <Grid item xs={6} sm={6}>
-                    <img src={homeimg2} alt='img2' style={{ width: '100%', maxWidth: '630px' }} />
+                    <img src={homeimg2} alt='img2' style={{ width: '100%', }} />
                 </Grid>
 
                 {/* Third Row of Images */}
                 <Grid item xs={6} sm={6}>
-                    <img src={titleimg1} alt='img' style={{ width: '100%', maxWidth: '630px' }} />
+                    <img src={titleimg1} alt='img' style={{ width: '100%', }} />
                 </Grid>
                 <Grid item xs={6} sm={6}>
-                    <img src={titleimg2} alt='img2' style={{ width: '100%', maxWidth: '630px' }} />
+                    <img src={titleimg2} alt='img2' style={{ width: '100%', }} />
                 </Grid>
 
                 {/* Fourth Row of Images */}

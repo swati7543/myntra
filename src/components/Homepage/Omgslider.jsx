@@ -32,6 +32,7 @@ function OmgSlider() {
 
             <Box
                 sx={{
+                    width: '100%',  
                     display: 'flex',
                     overflowX: 'auto', // Enable horizontal scrolling
                     whiteSpace: 'nowrap', // Prevent wrapping of items

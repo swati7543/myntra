@@ -5,11 +5,13 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import fimg1 from '../../assets/footerimg1.png'
+import fimg2 from '../../assets/footerimg2.png'
 
 export const Footer = () => {
 
     return (
-        <Box sx={{ backgroundColor: '#f8f8f8',p:1, marginTop: '20px', borderTop: '1px solid #e0e0e0' }}>
+        <Box sx={{ backgroundColor: '#f8f8f8', p: 1, marginTop: '20px', borderTop: '1px solid #e0e0e0' }}>
             <Container >
                 <Grid2 container >
                     {/* links start */}
@@ -52,16 +54,12 @@ export const Footer = () => {
                         </Box>
                     </Grid2>
 
-                    <Grid2 size={{ xs: 12, md: 4 }} sx={{ textAlign: 'left' }}>
-                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>
+                    <Grid2 size={{ xs: 12, md: 4 }} sx={{ textAlign: 'left',mt:1 }}>
+                        <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 13, marginBottom: '10px' }}>
                             EXPERIENCE MYNTRA APP ON MOBILE</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'left', mt: 2, gap: 2 }}>
-                            <Link href="https://play.google.com/store/apps/details?id=com.myntra.android">
-                                <img src="https://constant.myntassets.com/web/assets/img/80cc455a-92d2-4b5c-a038-7da0d92af33f1539674178924-google_play.png" alt="Google Play" style={{ width: '140px', height: '42px' }} />
-                            </Link>
-                            <Link href="https://apps.apple.com/in/app/myntra-indias-fashion-store/id907394059">
-                                <img src="https://constant.myntassets.com/web/assets/img/bc5e11ad-0250-420a-ac71-115a57ca35d51539674178941-apple_store.png" alt="App Store" style={{ width: '140px', height: '42px' }} />
-                            </Link>
+                            <img src={fimg1} alt="Google Play" style={{ width: '140px', height: '42px' }} />
+                            <img src={fimg2} alt="App Store" style={{ width: '140px', height: '42px' }} />
                         </Box>
 
                         <Typography variant="body2" sx={{ fontWeight: 'bold', fontSize: 14, mt: 2 }}>KEEP IN TOUCH</Typography>
@@ -107,7 +105,7 @@ export const Footer = () => {
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>
                             <Divider textAlign="left"> POPULAR SEARCHES</Divider>
                         </Typography>
-                        <Box sx={{fontSize:13}}>
+                        <Box sx={{ fontSize: 13 }}>
                             Makeup  Dresses For Girls  T-Shirts  Sandals  Headphones  Babydolls  Blazers For Men  Handbags  Ladies Watches  Bags  Sport Shoes  Reebok Shoes  Puma Shoes  Boxers  Wallets  Tops  Earrings  Fastrack Watches  Kurtis  Nike  Smart Watches  Titan Watches  Designer Blouse  Gowns  Rings  Cricket Shoes  Forever 21  Eye Makeup  Photo Frames  Punjabi Suits  Bikini  Myntra Fashion Show  Lipstick  Saree  Watches  Dresses  Lehenga  Nike Shoes  Goggles  Bras  Suit  Chinos  Shoes  Adidas Shoes  Woodland Shoes  Jewellery  Designers Sarees
                         </Box>
                         {/* You can add icons or links to download the app here */}
@@ -127,33 +125,33 @@ export const Footer = () => {
                     {/* Registered Office Address start */}
 
                     <Grid2 size={{ md: 12, xs: 12 }} sx={{ textAlign: 'left' }}>
-                        <Typography variant="h6">Registered Office Address</Typography>
+                        <Typography variant="h6" sx={{ fontSize: 14, mt: 2, fontWeight: 600 }}>Registered Office Address</Typography>
                     </Grid2>
 
                     <Grid2 size={{ md: 8, xs: 12 }} sx={{ mt: 2, textAlign: 'left' }}>
-                        <Box>
-                            <Typography>Buildings Alyssa, Begonia, and Clover</Typography>
-                            <Typography>Embassy Tech Village, Outer Ring Road</Typography>
-                            <Typography>Devarabeesanahalli Village, Varthur Hobli</Typography>
-                            <Typography>Bengaluru – 560103, India</Typography>
+                        <Box >
+                            <Typography sx={{ fontSize: 13 }}>Buildings Alyssa, Begonia, and Clover</Typography>
+                            <Typography sx={{ fontSize: 13 }} >Embassy Tech Village, Outer Ring Road</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Devarabeesanahalli Village, Varthur Hobli</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Bengaluru – 560103, India</Typography>
                         </Box>
                     </Grid2>
 
                     <Grid2 size={{ md: 4, xs: 12 }} sx={{ mt: { md: 8, xs: 0, sm: 0 }, textAlign: 'left' }}>
                         <Box>
-                            <Typography>CIN: U72300KA2007PTC041799</Typography>
-                            <Typography>Telephone: +91-80-61561999</Typography>
+                            <Typography sx={{fontSize:13}}>CIN: U72300KA2007PTC041799</Typography>
+                            <Typography sx={{fontSize:13}}>Telephone: +91-80-61561999</Typography>
                         </Box>
                     </Grid2>
                     {/* Registered Office Address end */}
 
 
                     {/*  */}
-                    <Grid2 size={{ md: 12, xs: 12 }} sx={{ textAlign: 'left', }}>
+                    <Grid2 size={{ md: 12, xs: 12 }} sx={{ textAlign: 'left',mt:1 }}>
                         <Typography variant="h6" sx={{ fontSize: 14, fontWeight: 600 }}>ONLINE SHOPPING MADE EASY AT MYNTRA
                         </Typography>
                         <Box>
-                            <Typography sx={{ mt: 1, fontSize: 14, marginBottom: '10px' }}>If you would like to experience the best of online shopping for men, women and kids in India,
+                            <Typography sx={{ mt: 1, fontSize: 13, marginBottom: '10px' }}>If you would like to experience the best of online shopping for men, women and kids in India,
                                 you are at the right place. Myntra is the ultimate destination for
                                 fashion and lifestyle, being host to a wide array of merchandise including clothing,
                                 footwear, accessories, jewellery, personal care products and more.

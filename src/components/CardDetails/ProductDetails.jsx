@@ -25,7 +25,14 @@ function ProductDetails() {
             <Grid container spacing={4}>
                 {/* Image Section */}
                 <Grid item xs={12} md={7}>
-                    <Box sx={{ display: 'flex', gap: 2, overflowX: 'auto', '&::-webkit-scrollbar': { display: 'none' } }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            gap: 2,
+                            overflowX: 'auto',
+                            '&::-webkit-scrollbar': { display: 'none' } // Hides scrollbar in WebKit browsers
+                        }}
+                    >
                         {images.map((image) => (
                             <Box
                                 key={image.id}
@@ -33,9 +40,10 @@ function ProductDetails() {
                                 src={image.src}
                                 alt={image.alt}
                                 sx={{
-                                    width: '100%',
-                                    maxWidth: '370px',
-                                    height: 'auto',
+                                    flexShrink: 0, // Prevents image from shrinking below the specified size
+                                    maxWidth: { xs: '100%', sm: '50%', md: '370px' }, // Adjusts width based on screen size
+                                    width: '100%', // Ensures image fills its container
+                                    height: 'auto', // Keeps aspect ratio
                                     borderRadius: 2,
                                     boxShadow: 3,
                                     transition: 'transform 0.3s, box-shadow 0.3s',
@@ -48,6 +56,7 @@ function ProductDetails() {
                         ))}
                     </Box>
                 </Grid>
+
 
                 {/* Details Section */}
                 <Grid item xs={12} md={5}>
@@ -64,17 +73,37 @@ function ProductDetails() {
 
                         <Typography variant="body1" fontWeight="bold" sx={{ mt: 2 }}>Select Size</Typography>
                         {/* Size Buttons */}
-                        <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                gap: 1,
+                                mt: 1,
+                                width: '100%',
+                            }}
+                        >
                             {['XXS', 'XS', 'S', 'M', 'L', 'XL'].map((size) => (
-                                <Button key={size} variant="outlined" sx={{ minWidth: '50px', borderRadius: '100%', height: '50px' }}>{size}</Button>
+                                <Button
+                                    key={size}
+                                    variant="outlined"
+                                    sx={{
+                                        flex: '1 1 auto', // Ensures buttons take equal width and don't wrap
+                                        minWidth: { sm: '50px', xs: 0, md: '25px' },      // Allows them to shrink as needed
+                                        maxWidth: { sm: '50px', xs: 0, md: '50px' },
+                                        borderRadius: '100%',
+                                        height: { sm: '50px', xs: 'auto', md: '50px' }
+                                    }}
+                                >
+                                    {size}
+                                </Button>
                             ))}
                         </Box>
 
+
                         <Box sx={{ display: 'flex', gap: 2, mt: 3 }}>
-                            <Button variant="contained" color="primary" fullWidth sx={{ py: 1.5, bgcolor: '#FF527B', fontWeight: 'bold' }}>
+                            <Button variant="contained" color="primary" fullWidth sx={{ py: 1.5, bgcolor: '#FF527B', fontWeight: 'bold', fontSize: 13 }}>
                                 Add to Bag
                             </Button>
-                            <Button variant="outlined" color="secondary" fullWidth sx={{ py: 1.5, fontWeight: 'bold' }}>
+                            <Button variant="outlined" color="secondary" fullWidth sx={{ py: 1.5, fontWeight: 'bold', fontSize: 13 }}>
                                 Wishlist
                             </Button>
                         </Box>
