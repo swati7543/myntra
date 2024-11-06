@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 
 const Womenlist = () => {
     return (
-        <Box sx={{ padding: 2, width: '100%' }}>
+        <Box sx={{ width: '100%' }}>
             <Grid container spacing={2}>
                 <Grid item xs={2.2}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Topwear</Typography>

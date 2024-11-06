@@ -6,12 +6,12 @@ import loginimg from '../../assets/loginimg.png';
 const Login = () => {
     return (
         <Box sx={{
-            bgcolor: '#fce4ec',          // Light pink background color
-            width: '100%',
-            height: '100vh',             // Full viewport height
+            bgcolor: '#fce4ec',          
+            height: '100%',             
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            padding:{md:4,sm:0,xs:0}
         }}>
             <Box
                 sx={{
@@ -20,15 +20,13 @@ const Login = () => {
                     width: '100%',
                     borderRadius: 2,
                     boxShadow: 3,
-                    overflow: 'hidden',  // Keeps inner elements contained
+                    overflow: 'hidden', 
                 }}
             >
-                {/* Logo Container */}
                 <Box sx={{ bgcolor: '#fff',  }}>
                     <img src={loginimg} alt="Login" style={{ maxWidth: '100%', marginBottom: '16px' }} />
                 </Box>
 
-                {/* Form Container */}
                 <Box sx={{ bgcolor: 'white', py: 4, px: 3 }}>
                     <Typography variant="h5" mb={2} fontWeight="bold">
                         Login or Signup

@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
-import { Badge, InputAdornment, Menu } from '@mui/material';
+import { Badge, Button, Divider, InputAdornment, Menu } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -18,39 +18,155 @@ import Menlist from '../../pages/Navlist/Menlist';
 import Womenlist from '../../pages/Navlist/Womenlist';
 import Kidslist from '../../pages/Navlist/Kidslist';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTotalItems } from '../../redux/features/addToCartSlice'
+import { selectWishlistItems } from '../../redux/features/addToWishlistSlice';
+import Studio from '../../pages/Navlist/Studio';
+
+const categoryComponents = [<Menlist />, <Womenlist />, <Kidslist />];
 
 export const Navbar = () => {
     const navigate = useNavigate()
+    const items = useSelector(state => state.cart.items);
+    const totalItems = useSelector(selectTotalItems);
+    const wishlist = useSelector(state => state.wishlist.item)
+    const totalWishlistItem = useSelector(selectWishlistItems)
+    const [openMenu, setOpenMenu] = useState(null);
     const [anchorEl, setAnchorEl] = useState(null);
-    const [openMenu, setOpenMenu] = useState(null); // State to track which menu is open
+    const [openMenuIndex, setOpenMenuIndex] = useState(null);
+    const [activeMenu, setActiveMenu] = useState(null);
 
-    const handleMouseEnter = (event, menuName) => {
-        setAnchorEl(event.currentTarget);
-        setOpenMenu(menuName); // Automatically open the new menu when hovering
+    const navItems = [
+        { id: 'men', label: 'Men', dropdown: <Menlist /> },
+        { id: 'women', label: 'Women', dropdown: <Womenlist /> },
+        { id: 'kids', label: 'Kids', dropdown: <Kidslist /> },
+        { id: 'Home&Living', label: 'Home&Living', dropdown: <Kidslist /> },
+        { id: 'Beauty', label: 'Beauty', dropdown: <Kidslist /> },
+        { id: 'Studio', label: 'Studio', dropdown: <Studio /> },
+        // Add more items here
+    ];
+
+    const handleMouseEnter = (event, menuName, itemId) => {
+        setActiveMenu(itemId);
+        setOpenMenu(menuName);
+        setAnchorEl(event.currentTarget); // Set anchor element for menu position
     };
 
     const handleMouseLeave = () => {
-        setOpenMenu(null); // Close menu on mouse leave
-        setAnchorEl(null);
+        setActiveMenu(null);
+        setOpenMenu(null);
+        setAnchorEl(null); // Reset anchor element when menu is closed
     };
 
+
+
+    // const handleMouseEnter = (event, menuName, index) => {
+    //     // setAnchorEl(event.currentTarget);
+    //     if (!anchorEl) {
+    //         setAnchorEl(event.currentTarget); // Set initial anchor element
+    //     }
+    //     setOpenMenu(menuName);
+    //     setOpenMenuIndex(index); // Set the index of the open menu
+
+    // };
+    // const handleMouseLeave = () => {
+    //     setOpenMenuIndex(null); // Reset the index to close the menu
+    //     setOpenMenu(null);
+    //     setAnchorEl(null);
+    // };
     const handleClose = () => {
         setOpenMenu(null);
         setAnchorEl(null);
     };
-
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ bgcolor: 'white', color: 'black', boxShadow: 'none', borderBottom: '1px solid #ddd' }}>
+            <AppBar position="static" sx={{ bgcolor: 'white', color: 'black', borderBottom: '1px solid #ddd' }}>
                 <Toolbar sx={{ height: { md: '5rem', sm: '3rem', xs: '3rem' }, display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center' }}>
                         <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer', width: '3.5rem', height: '3.5rem', mr: 3 }}>
                             <img src={firstimg} alt="Logo" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
                         </Box>
+                        <Box sx={{
+                            display: { xs: 'none', sm: 'flex', md: 'flex' },
+                            gap: 2,
+                        }
+                        }>
+                            {navItems.map((item) => (
+                                <Box
+                                    key={item.id}
+                                    onMouseEnter={(e) => handleMouseEnter(e, '', item.id)}
+                                    onMouseLeave={handleMouseLeave}
+                                    sx={{ cursor: 'pointer', position: 'relative', width: '100%', height: '5rem', display: 'flex', alignItems: 'center' }}
 
+                                >
+                                    <Typography variant='h6' sx={{
+                                        height: '100%',
+                                        width: '5rem',
+                                        fontSize: '1rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        alignContent: 'center',
+                                        justifyContent: 'center',
+                                        fontWeight: 600,
+                                        color: '#555',
+                                        cursor: 'pointer',
+                                        '&:hover': { color: '#000', borderBottom: '4px solid red' }
+                                    }}>
+
+                                        {item.label}
+                                    </Typography>
+                                    {activeMenu === item.id && (
+
+                                        <NavModal>
+                                            {item.dropdown}
+                                        </NavModal>
+                                    )}
+                                </Box>
+                            ))}
+                        </Box>
+                        {/* <Box sx={{
+                            display: { xs: 'none', sm: 'flex', md: 'flex' },
+                            gap: 2,
+                        }
+                        }>
+                            {['Men', 'Women', 'Kids', "Home&Living", "Beauty", " Studio"].map((category, index) => (
+                                <Box
+                                    key={index}
+                                    onMouseEnter={(event) => handleMouseEnter(event, '', index)}
+                                    onMouseLeave={handleMouseLeave}
+                                    sx={{ cursor: 'pointer' }}
+                                >
+                                    <Typography variant='h6' sx={{
+                                        fontSize: '1rem',
+                                        fontWeight: 600,
+                                        color: '#555',
+                                        cursor: 'pointer',
+                                        '&:hover': { color: '#000' }
+                                    }}>{category}</Typography>
+                                    <Menu
+                                        id={`${category.toLowerCase()}-menu`}
+                                        anchorEl={anchorEl}
+                                        open={openMenuIndex === index && Boolean(anchorEl)}
+                                        onClose={handleMouseLeave}
+                                        MenuListProps={{
+                                            onMouseEnter: () => setOpenMenuIndex(index),
+                                            onMouseLeave: handleMouseLeave,
+                                        }}
+                                        sx={{ mt: 4 }}
+                                    >
+                                        <NavModal>
+                                            {categoryComponents[index]}
+                                        </NavModal>
+                                    </Menu>
+                                </Box>
+                            ))}
+                        </Box> */}
+
+
+                        {/* 
                         <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center', alignItems: 'center' }}>
                             {/* Men Menu */}
-                            <Typography
+                        {/* <Typography
                                 variant="h6"
                                 noWrap
                                 component="div"
@@ -62,6 +178,7 @@ export const Navbar = () => {
                                     cursor: 'pointer',
                                     '&:hover': { color: '#000' }
                                 }}
+                                onChange={() => handleMouseLeave()}
                                 onMouseEnter={(event) => handleMouseEnter(event, 'men')}
                             >
                                 Men
@@ -79,10 +196,10 @@ export const Navbar = () => {
                                 <NavModal>
                                     <Menlist />
                                 </NavModal>
-                            </Menu>
+                            </Menu> */}
 
-                            {/* Women Menu */}
-                            <Typography
+                        {/* Women Menu */}
+                        {/* <Typography
                                 variant="h6"
                                 noWrap
                                 component="div"
@@ -111,10 +228,10 @@ export const Navbar = () => {
                                 <NavModal>
                                     <Womenlist />
                                 </NavModal>
-                            </Menu>
+                            </Menu> */}
 
-                            {/* Kids, Home & Living, Beauty */}
-                            <Typography
+                        {/* Kids, Home & Living, Beauty */}
+                        {/* <Typography
                                 variant="h6"
                                 noWrap
                                 component="div"
@@ -142,7 +259,7 @@ export const Navbar = () => {
                                 noWrap
                                 component="div"
                                 sx={{ display: { xs: 'none', sm: 'block' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
-                                onMouseEnter={(event) => handleMouseEnter(event, 'home')}
+                            // onMouseEnter={(event) => handleMouseEnter(event, 'home')}
                             >
                                 Home&Living
                             </Typography>
@@ -151,7 +268,7 @@ export const Navbar = () => {
                                 noWrap
                                 component="div"
                                 sx={{ display: { xs: 'none', sm: 'block' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
-                                onMouseEnter={(event) => handleMouseEnter(event, 'beauty')}
+                            // onMouseEnter={(event) => handleMouseEnter(event, 'beauty')}
                             >
                                 Beauty
                             </Typography>
@@ -163,18 +280,17 @@ export const Navbar = () => {
                                         </Typography>
                                     </Badge>
                                 </MenuItem>
-                            </Typography>
-                        </Box>
-
+                            </Typography> */}
+                        {/* </Box> */}
                     </Box>
 
                     {/* Search and Icons */}
-                    <Box sx={{ alignItems: 'center', gap: 2, display: 'flex' }}>
+                    <Box sx={{ alignItems: 'center', gap: 2, display: 'flex', }}>
                         <TextField
                             variant="outlined"
                             size="small"
                             placeholder="Search products, brands, and more"
-                            sx={{ width: '20rem', bgcolor: '#f1f1f1', borderRadius: 1, display: { md: 'flex', sm: 'none', xs: 'none' }, }}
+                            sx={{ width: '20rem', bgcolor: '#f1f1f1', borderRadius: 1, display: { md: 'none', lg: 'flex', sm: 'none', xs: 'none' }, }}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
@@ -184,30 +300,96 @@ export const Navbar = () => {
                             }}
                         />
 
-                        <Box sx={{ display: 'flex', gap: 2 }}>
-                            <IconButton color="inherit">
-                                <Box onClick={() => navigate('/login')}>
+                        <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+                            <Typography color="inherit" >
+                                <Box onMouseEnter={(event) => handleMouseEnter(event, 'profile')} >
                                     <AccountCircleIcon />
-                                    <Typography sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}>
-                                        Profile</Typography>
+                                    <Typography
+                                        sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
+                                    >
+                                        Profile
+                                    </Typography>
                                 </Box>
-                            </IconButton>
-                            <IconButton color="inherit">
-                                <Box>
+                                <Menu
+                                    id="basic-menu"
+                                    anchorEl={anchorEl}
+                                    open={openMenu === 'profile'}
+                                    onClose={handleClose}
+                                    MenuListProps={{
+                                        'aria-labelledby': 'basic-button',
+                                        onMouseLeave: handleMouseLeave,
+
+                                    }}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    <Box sx={{ padding: 2 }}>
+                                        <Box sx={{ mb: 2 }}>
+                                            <Typography>Welcome
+                                                To access account and manage orders
+                                            </Typography>
+                                            <Button variant='outlined' sx={{ mt: 2 }} onClick={() => {
+                                                handleClose()
+                                                navigate('/login')
+                                            }}  >   login / Signup</Button>
+                                        </Box>
+                                        <Divider />
+                                        {['Order', 'Wishlist', 'Gift Cards', 'Contact Us', 'Myntra Insider'].map((item, index) => (
+                                            <Box
+                                                key={index}
+                                                sx={{
+                                                    padding: .5,
+                                                    borderRadius: 1,
+                                                    cursor: 'pointer',
+                                                    '&:hover': { backgroundColor: '#f5f5f5' }
+                                                }}
+                                            >
+                                                {item}
+                                            </Box>
+                                        ))}
+
+                                        <Divider />
+                                        {['Myntra Credit', 'Coupons', 'Saved Card', 'Saved VPA', 'Saved Addresses'].map((item, index) => (
+                                            <Box
+                                                key={index}
+                                                sx={{
+                                                    padding: .5,
+                                                    borderRadius: 1,
+                                                    cursor: 'pointer',
+                                                    '&:hover': { backgroundColor: '#f5f5f5' }
+                                                }}
+                                            >
+                                                {item}
+                                            </Box>
+                                        ))}
+
+
+                                    </Box>
+                                </Menu>
+                            </Typography>
+                            <Typography color="inherit">
+                                {/* <Badge badgeContent={totalWishlistItem} color="error" sx={{ '& .MuiBadge-badge': { fontSize: '0.75rem' } }}> */}
+                                <Box onClick={() => navigate('/wishlist')}>
                                     <FavoriteBorderIcon />
-                                    <Typography sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, }}>Wishlist</Typography>
+                                    <Typography
+                                        sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
+                                    >Wishlist</Typography>
                                 </Box>
-                            </IconButton>
-                            <IconButton color="inherit">
-                                <Box>
-                                    <WorkOutlineIcon />
-                                    <Typography sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, }}>Bags</Typography>
-                                </Box>
-                            </IconButton>
+                                {/* </Badge> */}
+                            </Typography>
+                            <Typography color="inherit">
+                                <Badge badgeContent={totalItems} color="error" sx={{ '& .MuiBadge-badge': { fontSize: '0.75rem' } }}>
+                                    <Box onClick={() => navigate('/bags')}>
+                                        <WorkOutlineIcon />
+                                        <Typography
+                                            sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
+                                        >Bags </Typography>
+                                    </Box>
+                                </Badge>
+                            </Typography>
                         </Box>
                     </Box>
                 </Toolbar>
             </AppBar>
-        </Box>
+        </Box >
     );
 };

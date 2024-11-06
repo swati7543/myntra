@@ -7,6 +7,8 @@ import Login from './components/Login/Login';
 import CardDetails from './components/CardDetails';
 import ProductDetails from './components/CardDetails/ProductDetails';
 import DetailsPage from './components/CardDetails/DetailsPage';
+import Bags from './components/Bags/Bags';
+import Wishlist from './components/Wishlist/Wishlist';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/details/:id" element={<DetailsPage />} />
           <Route path="/productdetails/:id" element={<ProductDetails />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/bags" element={<Bags />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </Layout>
 

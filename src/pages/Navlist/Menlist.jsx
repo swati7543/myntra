@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Divider, Grid, Typography } from '@mui/material';
 
 const Menlist = () => {
     return (
-        <Box sx={{ padding: 2, width: '100%' }}>
+        <Box sx={{ width: '100%' }}>
             <Grid container spacing={2}>
                 <Grid item xs={2.2}>
                     <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Topwear</Typography>
@@ -77,7 +77,81 @@ const Menlist = () => {
                 </Grid>
             </Grid>
         </Box>
+
+        // <Box
+        //     sx={{
+        //         width: '100%',
+        //         padding: 4,
+        //         backgroundColor: '#ffffff',
+        //         borderRadius: 3,
+        //         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+        //     }}
+        // >
+        //     <Grid container spacing={3}>
+        //         {
+        //         [
+        //             {
+        //                 title: "Topwear",
+        //                 items: ["T-Shirts", "Casual Shirts", "Formal Shirts", "Sweatshirts", "Jackets", "Blazers & Coats"],
+        //             },
+        //             {
+        //                 title: "Indian & Festive Wear",
+        //                 items: ["Kurtas & Kurta Sets", "Sherwanis", "Nehru Jackets", "Dhotis", "Jackets", "Blazers & Coats"],
+        //             },
+        //             {
+        //                 title: "Bottomwear",
+        //                 items: ["Jeans", "Casual Trousers", "Formal Trousers", "Shorts", "Track Pants & Joggers"],
+        //             },
+        //             {
+        //                 title: "Innerwear & Sleepwear",
+        //                 items: ["Briefs & Trunks", "Boxers", "Vests", "Sleepwear & Loungewear", "Thermals"],
+        //             },
+        //             {
+        //                 title: "Footwear",
+        //                 items: ["Casual Shoes", "Sports Shoes", "Formal Shoes", "Sneakers", "Sandals & Floaters"],
+        //             },
+        //         ].map((category, index) => (
+        //             <Grid item key={index}>
+        //                 <Typography
+        //                     variant="h6"
+        //                     sx={{
+        //                         fontWeight: 'bold',
+        //                         color: '#d32f2f',
+        //                         fontSize: '1rem',
+        //                         marginBottom: 1,
+        //                         textTransform: 'uppercase',
+        //                     }}
+        //                 >
+        //                     {category.title}
+        //                 </Typography>
+        //                 <Divider sx={{ marginBottom: 2 }} />
+        //                 {category.items.map((item, idx) => (
+        //                     <Typography
+        //                         key={idx}
+        //                         variant="body2"
+        //                         onClick={() => console.log(`Navigate to ${item}`)} // Replace with actual navigation function
+        //                         sx={{
+        //                             // padding: '6px 0',
+        //                             cursor: 'pointer',
+        //                             color: '#424242',
+        //                             transition: 'all 0.2s',
+        //                             borderRadius: 1,
+        //                             '&:hover': {
+        //                                 backgroundColor: '#f5f5f5',
+        //                                 color: '#d32f2f',
+        //                                 fontWeight: '500',
+        //                             },
+        //                         }}
+        //                     >
+        //                         {item}
+        //                     </Typography>
+        //                 ))}
+        //             </Grid>
+        //         ))}
+        //     </Grid>
+        // </Box>
     );
 };
+
 
 export default Menlist;

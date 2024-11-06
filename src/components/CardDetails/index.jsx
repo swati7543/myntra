@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Breadcrumbs, Checkbox, Grid, Link, Radio, Slider, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Autocomplete, Box, Breadcrumbs, Button, Checkbox, Grid, Link, Menu, MenuItem, Radio, Slider, TextField, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function handleClick(event) {
@@ -43,7 +43,20 @@ const discountRanges = [
     '50% and above', '60% and above', '70% and above', '80% and above', '90% and above'
 ];
 
+const options = ['The Godfather', 'Pulp Fiction'];
+
+
+
 export default function CardDetails({ children }) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     const [priceRange, setPriceRange] = React.useState([100, 10100]);
 
     const handleSliderChange = (event, newValue) => {
@@ -133,8 +146,90 @@ export default function CardDetails({ children }) {
 
                 {/* Content Area */}
                 <Grid item xs={12} md={9}>
-                    <Box sx={{ mt: '4rem' }}>
-                        <Typography>Bundles</Typography>
+                    <Box sx={{ mt: '4rem', display: { md: 'flex', sm: 'none', xs: 'none' }, justifyContent: 'space-between', alignContent: 'center', alignItems: 'center' }}>
+                        <Box sx={{ display: 'flex ', justifyContent: 'center', gap: 5 }}>
+                         
+
+                            <Box>
+                                <Button
+                                    id="basic-button"
+                                    aria-controls={open ? 'basic-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={open ? 'true' : undefined}
+                                    onClick={handleClick}
+                                >
+                                    Bundles
+                                </Button>
+                                <Menu
+                                    id="basic-menu"
+                                    anchorEl={anchorEl}
+                                    open={open}
+                                    onClose={handleClose}
+                                    MenuListProps={{
+                                        'aria-labelledby': 'basic-button',
+                                    }}
+                                >
+                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                </Menu>
+                            </Box>
+                            <Box>
+                                <Button
+                                    id="basic-button"
+                                    aria-controls={open ? 'basic-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={open ? 'true' : undefined}
+                                    onClick={handleClick}
+                                >
+                                    Country of origin
+                                </Button>
+                                <Menu
+                                    id="basic-menu"
+                                    anchorEl={anchorEl}
+                                    open={open}
+                                    onClose={handleClose}
+                                    MenuListProps={{
+                                        'aria-labelledby': 'basic-button',
+                                    }}
+                                >
+                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                </Menu>
+                            </Box>
+                            <Box>
+                                <Button
+                                    id="basic-button"
+                                    aria-controls={open ? 'basic-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={open ? 'true' : undefined}
+                                    onClick={handleClick}
+                                >
+                                    size
+                                </Button>
+                                <Menu
+                                    id="basic-menu"
+                                    anchorEl={anchorEl}
+                                    open={open}
+                                    onClose={handleClose}
+                                    MenuListProps={{
+                                        'aria-labelledby': 'basic-button',
+                                    }}
+                                >
+                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                </Menu>
+                            </Box>
+                        </Box>
+                        <Autocomplete
+                            disablePortal
+                            options={options}
+                            size='small'
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label="search" />}
+                        />
                     </Box>
                     <Box>
                         {children}

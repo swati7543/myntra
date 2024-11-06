@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Box } from '@mui/material';
@@ -7,28 +7,36 @@ export default function NavModal({ children }) {
     return (
         <Card
             sx={{
-                width: 1050,
+                width: 1400,  // Fixed width
+                height: 550,  // Fixed height
                 borderRadius: 2,
-                boxShadow: 3,
                 overflow: 'hidden',
-                backgroundColor: 'white', // Matches the theme
+                backgroundColor: 'white',
+                position: 'fixed',  // Keeps modal fixed
+                top: '5.2rem',  // Adjust this based on navbar height
+                left: '50%',
+                transform: 'translateX(-50%)',  // Centers modal horizontally
+                zIndex:1,  // Ensure it stays on top
+                // boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
             }}
         >
             <CardContent
                 sx={{
-                    width: 1050,
-                    height: 400,
-                    padding: 0,
+                    padding: 2,
+                    height: '100%',
+                    width: '100%',
+                    overflowY: 'auto',
+                    scrollBehavior: 'smooth',
                 }}
             >
                 <Box
                     sx={{
-                        backgroundColor: 'white', // Lighter background for contrast
-                        padding: 3, // More padding for content spacing
+                        backgroundColor: 'white',
+                        padding: 3,
                         height: '100%',
+                        width: '100%',
                         overflowY: 'auto',
-                        scrollBehavior: 'smooth',
-                        borderRadius: 1, // Slightly rounded corners for the content
+                        textAlign:'left'
                     }}
                 >
                     {children}
@@ -36,4 +44,4 @@ export default function NavModal({ children }) {
             </CardContent>
         </Card>
     );
-} 
+}
