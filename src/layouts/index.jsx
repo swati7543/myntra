@@ -16,9 +16,12 @@ const Layout = ({ children }) => {
                 <main style={{ flex: 1, }}>{children}</main>
             </Box>
             {
-                pathname === '/login' ? "" : <Footer /> ||
-                    pathname === '/bags' ? "" : <Footer />
+                pathname === '/login' ? "" :
+                    pathname === '/bags' ? "" :
+                        <Footer />
             }
+
+
 
         </Box >
     );
