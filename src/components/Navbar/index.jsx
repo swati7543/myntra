@@ -42,7 +42,7 @@ export const Navbar = () => {
         { id: 'kids', label: 'Kids', dropdown: <Kidslist /> },
         { id: 'Home&Living', label: 'Home&Living', dropdown: <Kidslist /> },
         { id: 'Beauty', label: 'Beauty', dropdown: <Kidslist /> },
-        { id: 'Studio', label: 'Studio', dropdown: <Studio /> },
+        // { id: 'Studio', label: 'Studio', dropdown: <Studio /> },
         // Add more items here
     ];
 
@@ -60,30 +60,16 @@ export const Navbar = () => {
 
 
 
-    // const handleMouseEnter = (event, menuName, index) => {
-    //     // setAnchorEl(event.currentTarget);
-    //     if (!anchorEl) {
-    //         setAnchorEl(event.currentTarget); // Set initial anchor element
-    //     }
-    //     setOpenMenu(menuName);
-    //     setOpenMenuIndex(index); // Set the index of the open menu
-
-    // };
-    // const handleMouseLeave = () => {
-    //     setOpenMenuIndex(null); // Reset the index to close the menu
-    //     setOpenMenu(null);
-    //     setAnchorEl(null);
-    // };
     const handleClose = () => {
         setOpenMenu(null);
         setAnchorEl(null);
     };
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ bgcolor: 'white', color: 'black', borderBottom: '1px solid #ddd' }}>
+        <Box sx={{ mb: { md: 10, sm: 5, xs: 7 } }}>
+            <AppBar position="fixed" sx={{ bgcolor: 'white', color: 'black', borderBottom: '1px solid #ddd', }}>
                 <Toolbar sx={{ height: { md: '5rem', sm: '3rem', xs: '3rem' }, display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center' }}>
-                        <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer', width: '3.5rem', height: '3.5rem', mr: 3 }}>
+                        <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer', width: '3.5rem', height: '3.5rem', mr: 3, ml: { md: 4, xs: 0, sm: 0 } }}>
                             <img src={firstimg} alt="Logo" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
                         </Box>
                         <Box sx={{
@@ -102,7 +88,7 @@ export const Navbar = () => {
                                     <Typography variant='h6' sx={{
                                         height: '100%',
                                         width: '5rem',
-                                        fontSize: '1rem',
+                                        fontSize: '.9rem',
                                         display: 'flex',
                                         alignItems: 'center',
                                         alignContent: 'center',
@@ -123,6 +109,23 @@ export const Navbar = () => {
                                     )}
                                 </Box>
                             ))}
+                            <Box sx={{
+                                display: 'flex', justifyContent: 'center', alignContent: 'center',
+                                alignItems: 'center', fontWeight: 600,
+                                color: '#555',
+                                cursor: 'pointer',
+                                // '&:hover': { color: '#000', borderBottom: '4px solid red' }
+                            }}>
+                                <Badge badgeContent={'NEW'} sx={{ '& .MuiBadge-badge': { color: 'red', fontWeight: 600, fontSize: '0.75rem' } }}>
+                                    <Box onClick={() => navigate('/bags')}>
+                                        <Typography
+                                            sx={{
+                                                display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' }, mr: 1.5
+                                            }}
+                                        >STUDIO </Typography>
+                                    </Box>
+                                </Badge>
+                            </Box>
                         </Box>
                     </Box>
 
@@ -147,7 +150,7 @@ export const Navbar = () => {
                                 <Box onMouseEnter={(event) => handleMouseEnter(event, 'profile')} >
                                     <AccountCircleIcon />
                                     <Typography
-                                        sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
+                                        sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
                                     >
                                         Profile
                                     </Typography>
@@ -213,7 +216,7 @@ export const Navbar = () => {
                                 <Box onClick={() => navigate('/wishlist')}>
                                     <FavoriteBorderIcon />
                                     <Typography
-                                        sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
+                                        sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
                                     >Wishlist</Typography>
                                 </Box>
                                 {/* </Badge> */}
@@ -223,7 +226,7 @@ export const Navbar = () => {
                                     <Box onClick={() => navigate('/bags')}>
                                         <WorkOutlineIcon />
                                         <Typography
-                                            sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '1rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
+                                            sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
                                         >Bags </Typography>
                                     </Box>
                                 </Badge>

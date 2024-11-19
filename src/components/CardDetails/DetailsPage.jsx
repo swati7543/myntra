@@ -44,37 +44,50 @@ const images = [
     { id: 17, src: img17, alt: 'Image 7' },
     { id: 18, src: img18, alt: 'Image 8' },
     { id: 19, src: img19, alt: 'Image 9' },
+    { id: 17, src: img17, alt: 'Image 7' },
+    { id: 18, src: img18, alt: 'Image 8' },
+    { id: 19, src: img19, alt: 'Image 9' },
+    { id: 17, src: img17, alt: 'Image 7' },
+    { id: 18, src: img18, alt: 'Image 8' },
+    { id: 19, src: img19, alt: 'Image 9' },
 ];
 
 function DetailsPage() {
     const navigate = useNavigate()
     return (
         <CardDetails>
-            <Box sx={{  textAlign: 'center', mt: { md: '1rem', sm: 0, xs: 0 } }}>
+            <Box sx={{ textAlign: 'center', mt: { md: '1rem', sm: 0, xs: 0 } }}>
 
-                <Grid container spacing={2}>
+                <Grid container sx={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
                     {images.map((image) => (
-                        <Grid item xs={6} sm={6} md={3} key={image.id}>
-                            <Box
-                                component="img"
-                                src={image.src}
-                                alt={image.alt}
-                                sx={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    borderRadius: 2,
-                                    boxShadow: 2,
-                                    transition: 'transform 0.2s, box-shadow 0.2s',
-                                    '&:hover': {
-                                        transform: 'scale(1.05)',
-                                        boxShadow: 5,
-                                        cursor: 'pointer',
-                                    },
+                        <Grid item xs={6} sm={6} md={2.5} key={image.id} sx={{
+                            mb: 5,
+                            '&:hover': {
+                                // transform: 'scale(1.05)',
+                                boxShadow: 5,
+                                cursor: 'pointer',
+                            },
+                        }} >
+                            <Box sx={{
+                                width: '100%',
+                                height: 'auto',
+                            }}>
 
-                                }}
-                                onClick={() => navigate(`/productdetails/${image.id}`)}
+                                <img
+                                    src={image.src}
+                                    alt={image.alt}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                    }}
+                                    onClick={() => navigate(`/productdetails/${image.id}`)} />
 
-                            />
+                            </Box>
+                            <Box sx={{ textAlign: 'left', p: 1 }}>
+                                <Typography sx={{fontWeight:600,fontSize:16}}>Showoff Plus</Typography>
+                                <Typography sx={{color:'gray',fontSize:14,}}>Plus Size Casual Shirt</Typography>
+                                <Typography sx={{fontWeight:600,fontSize:14}}>Rs.1165(60%OFF)</Typography>
+                            </Box>
                         </Grid>
                     ))}
                 </Grid>

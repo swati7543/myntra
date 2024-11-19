@@ -1,11 +1,11 @@
-import React from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, Autocomplete, Box, Breadcrumbs, Button, Checkbox, Grid, Link, Menu, MenuItem, Radio, Slider, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { Accordion, AccordionDetails, AccordionSummary, Autocomplete, Box, Breadcrumbs, Button, Checkbox, Grid, Link, Menu, MenuItem, Radio, Slider, TextField, Typography, Divider } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 function handleClick(event) {
     event.preventDefault();
     console.info('You clicked a breadcrumb.');
 }
+
 
 const categories = [
     { label: 'Shirts', count: 156934 },
@@ -48,23 +48,33 @@ const options = ['The Godfather', 'Pulp Fiction'];
 
 
 export default function CardDetails({ children }) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [priceRange, setPriceRange] = React.useState([100, 10100]);
+    const [openMenu, setOpenMenu] = useState(null);
+
+
+
+    const handleClick = (event, menuName) => {
         setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
+        setOpenMenu(menuName);
     };
 
-    const [priceRange, setPriceRange] = React.useState([100, 10100]);
+    const handleClose = () => {
+        setAnchorEl(null);
+        setOpenMenu(null);
+    };
 
     const handleSliderChange = (event, newValue) => {
         setPriceRange(newValue);
     };
 
+
+
+
+
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'left' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'left', mt: 2 }}>
             <Grid container spacing={2} >
                 {/* Sidebar */}
                 <Grid item xs={12} md={2.5} sx={{ display: { md: 'block', sm: 'none', xs: 'none' }, p: 5 }}>
@@ -147,87 +157,58 @@ export default function CardDetails({ children }) {
                 {/* Content Area */}
                 <Grid item xs={12} md={9}>
                     <Box sx={{ mt: '4rem', display: { md: 'flex', sm: 'none', xs: 'none' }, justifyContent: 'space-between', alignContent: 'center', alignItems: 'center' }}>
-                        <Box sx={{ display: 'flex ', justifyContent: 'center', gap: 5 }}>
-                         
-
-                            <Box>
-                                <Button
-                                    id="basic-button"
-                                    aria-controls={open ? 'basic-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                    onClick={handleClick}
+                        {/* <Box sx={{ display: 'flex ', justifyContent: 'center' }}>
+                            <Box onClick={(e) => handleClick(e, 'profile')}>
+                                <Typography
+                                    sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
                                 >
                                     Bundles
-                                </Button>
-                                <Menu
-                                    id="basic-menu"
-                                    anchorEl={anchorEl}
-                                    open={open}
-                                    onClose={handleClose}
-                                    MenuListProps={{
-                                        'aria-labelledby': 'basic-button',
-                                    }}
-                                >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                </Menu>
+                                </Typography>
                             </Box>
-                            <Box>
-                                <Button
-                                    id="basic-button"
-                                    aria-controls={open ? 'basic-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                    onClick={handleClick}
+                            <Menu
+                                anchorEl={anchorEl}
+                                open={openMenu === 'profile'}
+                                onClose={handleClose}
+
+                            >
+                                <Box sx={{ padding: 2,width:'100%' }}>
+
+                                    <Divider />
+                                    {['Order', 'Wishlist', 'Gift Cards', 'Contact Us', 'Myntra Insider'].map((item, index) => (
+                                        <Box
+                                            key={index}
+                                            sx={{
+                                                padding: .5,
+                                                borderRadius: 1,
+                                                cursor: 'pointer',
+                                                '&:hover': { backgroundColor: '#f5f5f5' }
+                                            }}
+                                            onClick={handleClose}
+                                        >
+                                            {item}
+                                        </Box>
+                                    ))}
+
+                                </Box>
+                            </Menu>
+                        </Box>  */}
+                        <Box sx={{ display: 'flex', gap: 3, ml: 2 }}>
+
+                            {["Bundal", "Country of Origin", 'Size'].map((item, index) => (
+                                <Box
+                                    key={index}
+                                    sx={{display:'flex',alignContent:'center',cursor:'pointer'}}
                                 >
-                                    Country of origin
-                                </Button>
-                                <Menu
-                                    id="basic-menu"
-                                    anchorEl={anchorEl}
-                                    open={open}
-                                    onClose={handleClose}
-                                    MenuListProps={{
-                                        'aria-labelledby': 'basic-button',
-                                    }}
-                                >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                </Menu>
-                            </Box>
-                            <Box>
-                                <Button
-                                    id="basic-button"
-                                    aria-controls={open ? 'basic-menu' : undefined}
-                                    aria-haspopup="true"
-                                    aria-expanded={open ? 'true' : undefined}
-                                    onClick={handleClick}
-                                >
-                                    size
-                                </Button>
-                                <Menu
-                                    id="basic-menu"
-                                    anchorEl={anchorEl}
-                                    open={open}
-                                    onClose={handleClose}
-                                    MenuListProps={{
-                                        'aria-labelledby': 'basic-button',
-                                    }}
-                                >
-                                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleClose}>Logout</MenuItem>
-                                </Menu>
-                            </Box>
+                                    {item}
+                                    <ExpandMoreIcon />
+                                </Box>
+                            ))}
                         </Box>
                         <Autocomplete
                             disablePortal
                             options={options}
                             size='small'
-                            sx={{ width: 300 }}
+                            sx={{ width: 300, mr: 2 }}
                             renderInput={(params) => <TextField {...params} label="search" />}
                         />
                     </Box>
@@ -237,6 +218,6 @@ export default function CardDetails({ children }) {
                 </Grid>
 
             </Grid>
-        </Box>
+        </Box >
     );
 }

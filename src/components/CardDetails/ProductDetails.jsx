@@ -66,7 +66,7 @@ function CardDetails() {
                                     flexShrink: 0,
                                     maxWidth: { xs: '100%', sm: '50%', md: '370px' },
                                     width: '100%',
-                                    height: 'auto',
+                                    height: '29rem',
                                     borderRadius: 2,
                                     boxShadow: 3,
                                     transition: 'transform 0.3s, box-shadow 0.3s',
