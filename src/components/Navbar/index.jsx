@@ -117,7 +117,7 @@ export const Navbar = () => {
                                     </Typography>
                                     {activeMenu === item.id && (
 
-                                        <NavModal>
+                                        <NavModal >
                                             {item.dropdown}
                                         </NavModal>
                                     )}
