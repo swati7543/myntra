@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Box } from '@mui/material';
 
-export default function NavModal({ children }) {
+export default function NavModal({ children,sx }) {
     return (
         <Card
             sx={{
@@ -33,9 +33,9 @@ export default function NavModal({ children }) {
                     sx={{
                         backgroundColor: 'white',
                         padding: 3,
-                        height: '100%',
-                        width: '100%',
-                        overflowY: 'auto',
+                        height: 'auto',
+                        width: 'auto',
+                        // overflowY: 'auto',
                         textAlign:'left'
                     }}
                 >

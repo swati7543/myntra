@@ -4,9 +4,11 @@ import { removeItem } from '../../redux/features/addToCartSlice';
 import { Accordion, AccordionDetails, AccordionSummary, Autocomplete, Box, Breadcrumbs, Button, Checkbox, Divider, Grid, Link, Menu, MenuItem, Radio, Slider, TextField, Typography } from '@mui/material';
 import img1 from '../../assets/detailimg1.png';
 import addcartimg from '../../assets/addtocartimg.png';
+import { useNavigate } from 'react-router-dom';
 // import img2 from '../../assets/detailall1.png';
 
 function Bags() {
+    const navigate=useNavigate()
     const items = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
 
@@ -223,7 +225,7 @@ function Bags() {
                             </Box>
                             <Typography variant="h6" color="text.secondary" sx={{ fontSize: '1.2rem', fontWeight: 600 }}>Hey, it feels so light</Typography>
                             <Typography variant="h6" color="text.secondary" sx={{ fontSize: { lg: 16, md: 14, sm: 14, xs: 14 } }}>There is nothing in your bag. Let's add some items</Typography>
-                            <Button variant='contained' sx={{ mt: 2 }}>Add Items from Wishlist</Button>
+                            <Button onClick={() => navigate('/')} variant='contained' sx={{ mt: 2 }}>Add Items from Wishlist</Button>
                         </Box>
                     </Box>
 

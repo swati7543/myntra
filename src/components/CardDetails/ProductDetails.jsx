@@ -25,7 +25,7 @@ const termcondition = [
 
 function CardDetails() {
     const notify = () => toast("Item added to the cart!", {
-        position: "bottom-left",
+        position: "top-left",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -121,7 +121,7 @@ function CardDetails() {
                         <Box sx={{ display: 'flex', gap: 2, mt: 3 }}>
                             <Button
                                 onClick={() => {
-                                    dispatch(addItem({ id: id, name: 'Women Striped Jumper', price: 577 }));
+                                    dispatch(addItem({ id: id, name: 'Women Striped Jumper', price: 799 }));
                                     notify();
                                 }}
                                 variant="contained"
