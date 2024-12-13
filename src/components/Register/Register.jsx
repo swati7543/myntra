@@ -24,7 +24,7 @@ const Register = ({ onRegister }) => {
         backgroundImage: `url(${img})`, // Use backticks and template literals
         backgroundSize: 'cover', // Optional: To make the background cover the entire element
         backgroundPosition: 'center', // Opti        // background: 'linear-gradient(to bottom right, #000066 0%, #660033 100%)',
-        // p: 2
+        p: { sm: 2, xs: 2, md: 0 }
       }}
     >
       <Paper
@@ -38,7 +38,7 @@ const Register = ({ onRegister }) => {
           backgroundColor: 'rgba(255, 255, 255, .7)'    
             }}
       >
-        <Typography variant="h4" align="center" mb={3} color="primary" sx={{ color: 'blue' ,fontWeight:600}}>
+        <Typography variant="h4" align="center" mb={3} color="primary" sx={{ color: 'blue' ,fontWeight:600,fontSize:'2rem'}}>
           Register
         </Typography>
         <form onSubmit={handleSubmit}>

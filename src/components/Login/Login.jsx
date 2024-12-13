@@ -42,7 +42,7 @@ const Login = ({ onLogin }) => {
         backgroundImage: `url(${img})`, // Use backticks and template literals
         backgroundSize: 'cover', // Optional: To make the background cover the entire element
         backgroundPosition: 'center', // Opti        // background: 'linear-gradient(to bottom right, #000066 0%, #660033 100%)',
-        // p: 2
+        p: { sm: 2, xs: 2, md: 0 }
       }}
     >
       <Paper
@@ -53,11 +53,11 @@ const Login = ({ onLogin }) => {
           width: '100%',
           borderRadius: 2,
           boxShadow: 4,
-          backgroundColor: 'rgba(255, 255, 255, .7)'    
+          backgroundColor: 'rgba(255, 255, 255, .7)'
 
         }}
       >
-        <Typography variant="h4" align="center" mb={3} color="primary" sx={{fontWeight:600,color:'blue'}}>
+        <Typography variant="h4" align="center" mb={3} color="primary" sx={{ fontWeight: 600, color: 'blue' }}>
           Login
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ const Login = ({ onLogin }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              sx={{bgcolor:'transparent'}}
+              sx={{ bgcolor: 'transparent' }}
             />
           </Box>
           <Box mb={2}>
