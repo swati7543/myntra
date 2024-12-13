@@ -23,6 +23,7 @@ import { selectTotalItems } from '../../redux/features/addToCartSlice'
 import { selectWishlistItems } from '../../redux/features/addToWishlistSlice';
 import Studio from '../../pages/Navlist/Studio';
 import { Bounce, toast } from 'react-toastify';
+import logo from '../../assets/logo6.png'
 
 const categoryComponents = [<Menlist />, <Womenlist />, <Kidslist />];
 
@@ -103,7 +104,7 @@ export const Navbar = () => {
                 <Toolbar sx={{ height: { md: '5rem', sm: '3rem', xs: '3rem' }, display: 'flex', justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center' }}>
                         <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer', width: '3.5rem', height: '3.5rem', mr: 3, ml: { md: 4, xs: 0, sm: 0 } }}>
-                            <img src={firstimg} alt="Logo" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
+                            <img src={logo} alt="Logo" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
                         </Box>
                         <Box sx={{
                             display: { xs: 'none', sm: 'flex', md: 'flex' },

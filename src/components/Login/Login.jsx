@@ -2,34 +2,24 @@ import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import img from '../../assets/logimg7.png'
+import { signInSchema } from "../schemas";
+import { useFormik } from "formik";
 
 
 const Login = ({ onLogin }) => {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   onLogin(email, password);
-  // };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Simulating authentication (e.g., API call)
-    if (email === "user@example.com" && password === "password123") {
-      // On successful login, store user data in localStorage
-      const userData = { email: email, name: "John Doe" };
-      localStorage.setItem('user', JSON.stringify(userData));
-
-      // Redirect to the dashboard or home page
-      navigate('/dashboard');
-    } else {
-      alert("Invalid credentials");
-    }
-  };
-
+  const { values, handleBlur, handleChange, handleSubmit, errors, touched } = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: signInSchema,
+    onSubmit: () => {
+      const { email, password } = values;
+      onLogin(email, password);
+      navigate("/login");
+    },
+  })
 
   return (
     <Box
@@ -39,9 +29,9 @@ const Login = ({ onLogin }) => {
       height="100vh"
       bgcolor="background.default"
       sx={{
-        backgroundImage: `url(${img})`, // Use backticks and template literals
-        backgroundSize: 'cover', // Optional: To make the background cover the entire element
-        backgroundPosition: 'center', // Opti        // background: 'linear-gradient(to bottom right, #000066 0%, #660033 100%)',
+        backgroundImage: `url(${img})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         p: { sm: 2, xs: 2, md: 0 }
       }}
     >
@@ -64,11 +54,16 @@ const Login = ({ onLogin }) => {
           <Box mb={2}>
             <TextField
               label="Email"
+              name="email"
               type="email"
               variant="outlined"
               fullWidth
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.email && Boolean(errors.email)}
+
+              helperText={touched.email && errors.email}
               required
               sx={{ bgcolor: 'transparent' }}
             />
@@ -76,11 +71,15 @@ const Login = ({ onLogin }) => {
           <Box mb={2}>
             <TextField
               label="Password"
+              name="password"
               type="password"
               variant="outlined"
               fullWidth
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
               required
             />
           </Box>

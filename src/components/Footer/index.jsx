@@ -9,7 +9,6 @@ import fimg1 from '../../assets/footerimg1.png'
 import fimg2 from '../../assets/footerimg2.png'
 
 export const Footer = () => {
-
     return (
         <Box sx={{ backgroundColor: '#f8f8f8', p: 1, marginTop: '20px', borderTop: '1px solid #e0e0e0' }}>
             <Container >
@@ -54,7 +53,7 @@ export const Footer = () => {
                         </Box>
                     </Grid2>
 
-                    <Grid2 size={{ xs: 12, md: 4 }} sx={{ textAlign: 'left',mt:1 }}>
+                    <Grid2 size={{ xs: 12, md: 4 }} sx={{ textAlign: 'left', mt: 1 }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 13, marginBottom: '10px' }}>
                             EXPERIENCE MYNTRA APP ON MOBILE</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'left', mt: 2, gap: 2 }}>
@@ -124,40 +123,37 @@ export const Footer = () => {
 
                     {/* Registered Office Address start */}
 
+
                     <Grid2 size={{ md: 12, xs: 12 }} sx={{ textAlign: 'left' }}>
                         <Typography variant="h6" sx={{ fontSize: 14, mt: 2, fontWeight: 600 }}>Registered Office Address</Typography>
                     </Grid2>
 
                     <Grid2 size={{ md: 8, xs: 12 }} sx={{ mt: 2, textAlign: 'left' }}>
                         <Box >
-                            <Typography sx={{ fontSize: 13 }}>Buildings Alyssa, Begonia, and Clover</Typography>
-                            <Typography sx={{ fontSize: 13 }} >Embassy Tech Village, Outer Ring Road</Typography>
-                            <Typography sx={{ fontSize: 13 }}>Devarabeesanahalli Village, Varthur Hobli</Typography>
-                            <Typography sx={{ fontSize: 13 }}>Bengaluru – 560103, India</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Pizza Tower, Burger Street  </Typography>
+                            <Typography sx={{ fontSize: 13 }} > Chowmein Avenue, Taco Lane </Typography>
+                            <Typography sx={{ fontSize: 13 }}>  Spicy Biryani District, Sector 8</Typography>
+                            <Typography sx={{ fontSize: 13 }}>   Foodville City – 123987, India</Typography>
                         </Box>
                     </Grid2>
 
                     <Grid2 size={{ md: 4, xs: 12 }} sx={{ mt: { md: 8, xs: 0, sm: 0 }, textAlign: 'left' }}>
                         <Box>
-                            <Typography sx={{fontSize:13}}>CIN: U72300KA2007PTC041799</Typography>
-                            <Typography sx={{fontSize:13}}>Telephone: +91-80-61561999</Typography>
+                            <Typography sx={{ fontSize: 13 }}>CIN:xxxxx4444gggg2227PTC041799</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Telephone: +91-xx000099999900</Typography>
                         </Box>
                     </Grid2>
                     {/* Registered Office Address end */}
 
 
                     {/*  */}
-                    <Grid2 size={{ md: 12, xs: 12 }} sx={{ textAlign: 'left',mt:1 }}>
-                        <Typography variant="h6" sx={{ fontSize: 14, fontWeight: 600 }}>ONLINE SHOPPING MADE EASY AT MYNTRA
+                    <Grid2 size={{ md: 12, xs: 12 }} sx={{ textAlign: 'left', mt: 1 }}>
+                        <Typography variant="h6" sx={{ fontSize: 14, fontWeight: 600 }}>ONLINE SHOPPING MADE EASY AT MYWeb
                         </Typography>
                         <Box>
                             <Typography sx={{ mt: 1, fontSize: 13, marginBottom: '10px' }}>If you would like to experience the best of online shopping for men, women and kids in India,
-                                you are at the right place. Myntra is the ultimate destination for
-                                fashion and lifestyle, being host to a wide array of merchandise including clothing,
-                                footwear, accessories, jewellery, personal care products and more.
-                                It is time to redefine your style statement with our treasure-trove
-                                of trendy items. Our online store brings you the latest in designer
-                                products straight out of fashion houses. You can shop online at Myntra
+                                If you’re craving the best in online shopping for men, women, and kids, you've come to the right place. BurgerHub is your ultimate destination for food-inspired fashion and lifestyle, serving up a delectable collection of clothing, fries, sneakers, accessories, cupcakes, personal care products, and more. Redefine your style with our tasty selection of trendy items, all available from the comfort of your home. You can shop for your favorite 'dishes' and have them delivered hot and fresh to your doorstep, straight from the snack aisle of fashion!
+                                online at Myntra
                                 from the comfort of your home and get your favourites delivered right to your doorstep.</Typography>
 
                         </Box>

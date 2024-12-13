@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Route, Router, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
 import Layout from './layouts';
 import HomePage from './components/Homepage';
 import Login from './components/Login/Login';
@@ -11,32 +11,51 @@ import Bags from './components/Bags/Bags';
 import Wishlist from './components/Wishlist/Wishlist';
 import { useEffect, useState } from 'react';
 import Register from './components/Register/Register';
+import { toast, Bounce } from 'react-toastify';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const notify = (message) => {
+    toast(message, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      icon: false,
+      theme: "light",
+      transition: Bounce,
+    });
+  };
+
 
   useEffect(() => {
     // Check login status from localStorage
-    const user = localStorage.getItem("user")
-    console.log(user, 'user');
+    const user = localStorage.getItem("user");
     setIsLoggedIn(!!user);
   }, []);
 
   const handleLogin = (email, password) => {
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log(user, 'djd')
     if (user && user.email === email && user.password === password) {
       setIsLoggedIn(true);
-      alert("Login successful!");
+      // alert("Login successful!");
+      notify("Login successful!");
+      notify(`Welcome back, ${user.userName}!`);
+      navigate("/"); // Redirect to HomePage
     } else {
-      alert("Invalid credentials!");
+      notify("Invalid credentials!");
     }
   };
 
   const handleRegister = (email, password, userName) => {
     localStorage.setItem("user", JSON.stringify({ email, password, userName }));
-    setIsLoggedIn(true);
-    alert("Registration successful!");
+    notify("Registration successful! Please log in.");
+    navigate("/login"); // Redirect to LoginPage after registration
   };
 
   return (
@@ -63,8 +82,7 @@ function App() {
           </>
         )}
       </Routes>
-
-    </div >
+    </div>
   );
 }
 
