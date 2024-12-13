@@ -51,7 +51,7 @@ function Bags() {
                                 </Box>
                                 <Box sx={{ border: 1, height: 'auto', padding: 2, }}>
                                     <Typography>Available offers</Typography>
-                                    <Typography>7.5% Instant Discount up to ₹750 on every spend with Myntra Kotak Credit Card. TCA</Typography>
+                                    <Typography>7.5% Instant Discount up to ₹750 on every spend with Tyntra Kotak Credit Card. TCA</Typography>
 
                                 </Box>
                                 <Box sx={{ display: 'flex', m: { md: 2, sm: 0, xs: 0 }, justifyContent: 'space-between', alignItems: 'center' }}>

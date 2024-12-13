@@ -19,7 +19,7 @@ const termcondition = [
     { id: 1, title: 'Terms & Condition', label: '12% Discount on RuPay Credit Card.', content: 'Min Spend ₹4000, Max Discount ₹1500.' },
     { id: 2, title: 'Terms & Condition', label: '10% Discount on RBL Bank Credit and Debit Cards.', content: 'Min Spend ₹3500, Max Discount ₹1000.' },
     { id: 3, title: 'Terms & Condition', label: '10% Discount on IDFC FIRST Bank Credit and Debit Cards.', content: 'Min Spend ₹3500, Max Discount ₹1000.' },
-    { id: 4, title: 'Terms & Condition', label: '7.5% Discount on Myntra Kotak Credit Card.', content: 'Max Discount up to ₹750 on every spend.' },
+    { id: 4, title: 'Terms & Condition', label: '7.5% Discount on Tyntra Kotak Credit Card.', content: 'Max Discount up to ₹750 on every spend.' },
     { id: 5, title: 'Terms & Condition', label: 'EMI option available', content: 'EMI starting from Rs.38/month' }
 ];
 

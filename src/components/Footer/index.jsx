@@ -23,7 +23,7 @@ export const Footer = () => {
                             <Typography sx={{ fontSize: 13 }}>Home & Living</Typography>
                             <Typography sx={{ fontSize: 13 }}>Beauty</Typography>
                             <Typography sx={{ fontSize: 13 }}>Gift Cards</Typography>
-                            <Typography sx={{ fontSize: 13 }}>Myntra Insider</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Tyntra Insider</Typography>
                         </Box>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 13, marginBottom: '10px' }}>Useful links</Typography>
                         <Box sx={{ textAlign: 'start' }}>
@@ -33,7 +33,7 @@ export const Footer = () => {
                             <Typography sx={{ fontSize: 13 }}>Home & Living</Typography>
                             <Typography sx={{ fontSize: 13 }}>Beauty</Typography>
                             <Typography sx={{ fontSize: 13 }}>Gift Cards</Typography>
-                            <Typography sx={{ fontSize: 13 }}>Myntra Insider</Typography>
+                            <Typography sx={{ fontSize: 13 }}>Tyntra Insider</Typography>
                         </Box>
                     </Grid2>
 
@@ -55,7 +55,7 @@ export const Footer = () => {
 
                     <Grid2 size={{ xs: 12, md: 4 }} sx={{ textAlign: 'left', mt: 1 }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 13, marginBottom: '10px' }}>
-                            EXPERIENCE MYNTRA APP ON MOBILE</Typography>
+                            EXPERIENCE Tyntra APP ON MOBILE</Typography>
                         <Box sx={{ display: 'flex', justifyContent: 'left', mt: 2, gap: 2 }}>
                             <img src={fimg1} alt="Google Play" style={{ width: '140px', height: '42px' }} />
                             <img src={fimg2} alt="App Store" style={{ width: '140px', height: '42px' }} />
@@ -72,7 +72,7 @@ export const Footer = () => {
                     </Grid2>
                     <Grid2 size={{ xs: 12, md: 3 }} sx={{ textAlign: 'left' }}>
                         <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: 14, marginBottom: '10px' }}>
-                            EXPERIENCE MYNTRA APP ON MOBILE</Typography>
+                            EXPERIENCE Tyntra APP ON MOBILE</Typography>
                         <Grid2 item>
                             <Box display="flex" alignItems="center">
                                 <Box sx={{ width: '5rem', }}>
@@ -80,7 +80,7 @@ export const Footer = () => {
                                     <img style={{ width: '100%', height: '100%' }} src="https://constant.myntassets.com/web/assets/img/6c3306ca-1efa-4a27-8769-3b69d16948741574602902452-original.png" alt="Original" />
                                 </Box>
                                 <Typography variant="body2" sx={{ ml: 1 }}>
-                                    <strong>100% Original</strong> guarantee for all products at myntra.com
+                                    <strong>100% Original</strong> guarantee for all products at tyntra.com
                                 </Typography>
                             </Box>
                         </Grid2>
@@ -105,7 +105,7 @@ export const Footer = () => {
                             <Divider textAlign="left"> POPULAR SEARCHES</Divider>
                         </Typography>
                         <Box sx={{ fontSize: 13 }}>
-                            Makeup  Dresses For Girls  T-Shirts  Sandals  Headphones  Babydolls  Blazers For Men  Handbags  Ladies Watches  Bags  Sport Shoes  Reebok Shoes  Puma Shoes  Boxers  Wallets  Tops  Earrings  Fastrack Watches  Kurtis  Nike  Smart Watches  Titan Watches  Designer Blouse  Gowns  Rings  Cricket Shoes  Forever 21  Eye Makeup  Photo Frames  Punjabi Suits  Bikini  Myntra Fashion Show  Lipstick  Saree  Watches  Dresses  Lehenga  Nike Shoes  Goggles  Bras  Suit  Chinos  Shoes  Adidas Shoes  Woodland Shoes  Jewellery  Designers Sarees
+                            Makeup  Dresses For Girls  T-Shirts  Sandals  Headphones  Babydolls  Blazers For Men  Handbags  Ladies Watches  Bags  Sport Shoes  Reebok Shoes  Puma Shoes  Boxers  Wallets  Tops  Earrings  Fastrack Watches  Kurtis  Nike  Smart Watches  Titan Watches  Designer Blouse  Gowns  Rings  Cricket Shoes  Forever 21  Eye Makeup  Photo Frames  Punjabi Suits  Bikini  Tyntra Fashion Show  Lipstick  Saree  Watches  Dresses  Lehenga  Nike Shoes  Goggles  Bras  Suit  Chinos  Shoes  Adidas Shoes  Woodland Shoes  Jewellery  Designers Sarees
                         </Box>
                         {/* You can add icons or links to download the app here */}
                     </Grid2>
@@ -153,7 +153,7 @@ export const Footer = () => {
                         <Box>
                             <Typography sx={{ mt: 1, fontSize: 13, marginBottom: '10px' }}>If you would like to experience the best of online shopping for men, women and kids in India,
                                 If you’re craving the best in online shopping for men, women, and kids, you've come to the right place. BurgerHub is your ultimate destination for food-inspired fashion and lifestyle, serving up a delectable collection of clothing, fries, sneakers, accessories, cupcakes, personal care products, and more. Redefine your style with our tasty selection of trendy items, all available from the comfort of your home. You can shop for your favorite 'dishes' and have them delivered hot and fresh to your doorstep, straight from the snack aisle of fashion!
-                                online at Myntra
+                                online at Tyntra
                                 from the comfort of your home and get your favourites delivered right to your doorstep.</Typography>
 
                         </Box>
