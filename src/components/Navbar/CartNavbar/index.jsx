@@ -5,6 +5,7 @@ import StepLabel from '@mui/material/StepLabel';
 import { AppBar, Box, Toolbar, Typography, Divider } from '@mui/material';
 import firstimg from '../../../assets/firstimg.jpg'; // Replace this with the correct path to your logo
 import { useNavigate } from 'react-router-dom';
+import logo from '../../../assets/logo6.png'
 
 const steps = ['BAG', 'ADDRESS', 'PAYMENT'];
 
@@ -36,13 +37,13 @@ const CartNavbar = () => {
                             onClick={() => navigate('/')}
                             sx={{
                                 cursor: 'pointer',
-                                width: '3.5rem',
+                                width: '4rem',
                                 height: '3.5rem',
                                 mr: 3
                             }}
                         >
                             <img
-                                src={firstimg}
+                                src={logo}
                                 alt="Logo"
                                 style={{ width: '100%', height: '100%', borderRadius: '50%' }}
                             />

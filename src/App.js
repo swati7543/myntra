@@ -12,6 +12,7 @@ import Wishlist from './components/Wishlist/Wishlist';
 import { useEffect, useState } from 'react';
 import Register from './components/Register/Register';
 import { toast, Bounce } from 'react-toastify';
+import OrderNow from './components/OrderNow';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -70,6 +71,7 @@ function App() {
               <Route path="/productdetails/:id" element={<ProductDetails />} />
               <Route path="/bags" element={<Bags />} />
               <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/ordernow" element={<OrderNow />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
           </>

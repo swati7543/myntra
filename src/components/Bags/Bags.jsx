@@ -5,12 +5,30 @@ import { Accordion, AccordionDetails, AccordionSummary, Autocomplete, Box, Bread
 import img1 from '../../assets/detailimg1.png';
 import addcartimg from '../../assets/addtocartimg.png';
 import { useNavigate } from 'react-router-dom';
+import { toast, Bounce } from 'react-toastify';
 // import img2 from '../../assets/detailall1.png';
 
 function Bags() {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const items = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
+
+    const notify = (message) => {
+        toast(message, {
+            position: "top-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            icon: false,
+            theme: "light",
+            transition: Bounce,
+        });
+    };
+
+
 
     // Calculate total price
     const totalPrice = items.reduce((acc, item) => acc + item.price, 0);
@@ -18,12 +36,12 @@ function Bags() {
 
     return (
         <>
-            
+
 
             {hasItems ?
                 <Box sx={{ display: 'flex', justifyContent: 'center', textAlign: 'left' }
                 } >
-                    <Grid container sx={{  mt: 4 }}>
+                    <Grid container sx={{ mt: 4 }}>
                         {/* Sidebar */}
                         <Grid item xs={12} md={7} sx={{ display: 'flex', justifyContent: 'right', }}>
                             <Box sx={{ padding: 2, width: { md: '70%', sm: '100%', xs: '100%' }, }} >
@@ -210,8 +228,13 @@ function Bags() {
 
 
                                 <Divider sx={{ my: 3 }} />
+                                <Box onClick={() => {
+                                    navigate('/ordernow')
+                                    notify("Order Placed Successfully")
+                                }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 
-
+                                    <Button variant='contained'>Order Now</Button>
+                                </Box>
                             </Box>
                         </Grid >
                     </Grid >

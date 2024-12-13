@@ -9,8 +9,10 @@ const Layout = ({ children }) => {
 
     return (
         <Box style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-            {pathname === '/bags' ? <CartNavbar /> : <Navbar />
+            {pathname === '/bags' ? <CartNavbar /> : <Navbar /> &&
+                pathname === '/ordernow' ? '' : <Navbar />
             }
+
             <Box >
                 {/* <Sidebar /> */}
                 <main>
@@ -22,7 +24,8 @@ const Layout = ({ children }) => {
             {
                 pathname === '/login' ? "" :
                     pathname === '/bags' ? "" :
-                        <Footer />
+                        pathname === '/ordernow' ? '' :
+                            <Footer />
             }
 
 
