@@ -7,9 +7,9 @@ export default function NavModal({ children,sx }) {
     return (
         <Card
             sx={{
-                width: 1200,  // Fixed width
+                width: 1100,  // Fixed width
                 height: 435,  // Fixed height
-                borderRadius: 2,
+                // borderRadius: 2,
                 overflow: 'hidden',
                 backgroundColor: 'white',
                 position: 'fixed',  // Keeps modal fixed

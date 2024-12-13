@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '../components/Navbar';
 import CartNavbar from '../components/Navbar/CartNavbar';
 import { Footer } from '../components/Footer';
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Box } from '@mui/material';
 const Layout = ({ children }) => {
     const { pathname } = useLocation();
@@ -13,7 +13,11 @@ const Layout = ({ children }) => {
             }
             <Box >
                 {/* <Sidebar /> */}
-                <main style={{ flex: 1, }}>{children}</main>
+                <main>
+                    <Outlet /> {/* Render child routes here */}
+                </main>
+
+                {/* <main style={{ flex: 1, }}>{children}</main> */}
             </Box>
             {
                 pathname === '/login' ? "" :

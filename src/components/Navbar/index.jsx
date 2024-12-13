@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectTotalItems } from '../../redux/features/addToCartSlice'
 import { selectWishlistItems } from '../../redux/features/addToWishlistSlice';
 import Studio from '../../pages/Navlist/Studio';
+import { Bounce, toast } from 'react-toastify';
 
 const categoryComponents = [<Menlist />, <Womenlist />, <Kidslist />];
 
@@ -35,6 +36,38 @@ export const Navbar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [openMenuIndex, setOpenMenuIndex] = useState(null);
     const [activeMenu, setActiveMenu] = useState(null);
+    const loggedInUser = JSON.parse(localStorage.getItem('user'));
+
+    const notify = () => toast("User LoggedOut!", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        icon: false,
+        theme: "light",
+        transition: Bounce,
+    });
+    const loggedOutUser = () => {
+        localStorage.removeItem('user');
+        notify();
+        console.log('logged out ')
+        if (!loggedInUser) {
+            // If no user is found, redirect to login page
+            navigate('/login');
+        }
+        console.log(loggedInUser, 'ssss')
+    };
+    // useEffect(() => {
+    //     const loggedInUser = localStorage.getItem('user');
+
+    //     if (!loggedInUser) {
+    //         // If no user is found, redirect to login page
+    //         navigate('/login');
+    //     }
+    // }, [navigate]);
 
     const navItems = [
         { id: 'men', label: 'Men', dropdown: <Menlist /> },
@@ -114,13 +147,14 @@ export const Navbar = () => {
                                 alignItems: 'center', fontWeight: 600,
                                 color: '#555',
                                 cursor: 'pointer',
+                                // mr: 4
                                 // '&:hover': { color: '#000', borderBottom: '4px solid red' }
                             }}>
                                 <Badge badgeContent={'NEW'} sx={{ '& .MuiBadge-badge': { color: 'red', fontWeight: 600, fontSize: '0.75rem' } }}>
                                     <Box onClick={() => navigate('/bags')}>
                                         <Typography
                                             sx={{
-                                                display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' }, mr: 1.5
+                                                display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.8rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' }, mr: 1.5
                                             }}
                                         >STUDIO </Typography>
                                     </Box>
@@ -135,7 +169,7 @@ export const Navbar = () => {
                             variant="outlined"
                             size="small"
                             placeholder="Search products, brands, and more"
-                            sx={{ width: '20rem', bgcolor: '#f1f1f1', borderRadius: 1, display: { md: 'none', lg: 'flex', sm: 'none', xs: 'none' }, }}
+                            sx={{ width: '25rem', bgcolor: '#f1f1f1', border: 'none', borderRadius: 1, display: { md: 'none', lg: 'flex', sm: 'none', xs: 'none' }, }}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
@@ -152,7 +186,7 @@ export const Navbar = () => {
                                     <Typography
                                         sx={{ display: { md: 'flex', sm: 'none', xs: 'none' }, fontSize: '.9rem', fontWeight: 600, color: '#555', cursor: 'pointer', '&:hover': { color: '#000' } }}
                                     >
-                                        Profile
+                                        {loggedInUser?.userName ? loggedInUser?.userName : 'Profile'}
                                     </Typography>
                                 </Box>
                                 <Menu
@@ -166,16 +200,24 @@ export const Navbar = () => {
 
                                     }}
                                     onMouseLeave={handleMouseLeave}
+                                    sx={{ mt: 2 }}
                                 >
                                     <Box sx={{ padding: 2 }}>
                                         <Box sx={{ mb: 2 }}>
                                             <Typography>Welcome
                                                 To access account and manage orders
                                             </Typography>
-                                            <Button variant='outlined' sx={{ mt: 2 }} onClick={() => {
-                                                handleClose()
-                                                navigate('/login')
-                                            }}  >   login / Signup</Button>
+                                            {loggedInUser?.userName ? (
+                                                <Button onClick={loggedOutUser}>LogOut</Button>
+                                            ) : (
+                                                <Button variant="outlined" sx={{ mt: 2 }} onClick={() => {
+                                                    handleClose();
+                                                    navigate('/login');
+                                                }}>
+                                                    login / Signup
+                                                </Button>
+                                            )}
+
                                         </Box>
                                         <Divider />
                                         {['Order', 'Wishlist', 'Gift Cards', 'Contact Us', 'Myntra Insider'].map((item, index) => (

@@ -81,6 +81,7 @@ function DetailsPage() {
                                         height: '100%',
                                     }}
                                     onClick={() => navigate(`/productdetails/${image.id}`)} />
+                                    
 
                             </Box>
                             <Box sx={{ textAlign: 'left', p: 1 }}>

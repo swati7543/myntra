@@ -2,12 +2,15 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
 const Kidslist = () => {
+  
+
     return (
         <Box sx={{ width: '100%' }}>
             <Grid container spacing={2}>
                 <Grid item xs={2.2} >
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Topwear</Typography>
-                    <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>T-Shirts</Typography>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>  Boys Clothing</Typography>
+                    <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>T-Shirts
+                    </Typography>
                     <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Casual Shirts</Typography>
                     <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Formal Shirts</Typography>
                     <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Sweatshirts</Typography>

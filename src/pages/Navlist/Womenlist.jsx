@@ -2,21 +2,32 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 
 const Womenlist = () => {
+    
+
     return (
         <Box sx={{ width: '100%' }}>
         <Grid container spacing={2}>
             <Grid item xs={2.2} >
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Topwear</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>T-Shirts</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Casual Shirts</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Formal Shirts</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Sweatshirts</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Jackets</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Blazers & Coats</Typography>
-                <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Indian & Festive Wear</Typography>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Indian & Fusion Wear</Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Kurtas & Suits
+                </Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Kurtis, Tunics & Tops
+                </Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Sarees
+                </Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Ethnic Wear
+                </Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Leggings, Salwars & Churidars
+                </Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Skirts & Palazzos
+                </Typography>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'red', fontSize: '.9rem' }}>Dress Materials
+                </Typography>
                 <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Kurtas & Kurta Sets</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Sherwanis</Typography>
-                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Nehru Jackets</Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Lehenga Cholis
+                </Typography>
+                <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Dupattas & Shawls
+                </Typography>
                 <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Dhotis</Typography>
                 <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Jackets</Typography>
                 <Typography variant="body2" sx={{ '&:hover': { backgroundColor: '#f5f5f5' }}}>Blazers & Coats</Typography>
